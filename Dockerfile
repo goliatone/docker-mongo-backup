@@ -10,4 +10,4 @@ RUN chmod +x /cronstart.sh
 
 VOLUME /mongobackup
 
-CMD './cron.sh'
+CMD './cronstart.sh'
