@@ -14,4 +14,4 @@ RUN cd /
 
 VOLUME /mongobackup
 
-CMD './cronstart.sh'
+CMD '/cronstart.sh'
