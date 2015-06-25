@@ -9,6 +9,8 @@ ADD remove.sh /remove.sh
 RUN chmod +x /backup.sh
 RUN chmod +x /cronstart.sh
 RUN chmod +x /remove.sh
+RUN mkdir /mongobackup
+RUN cd /
 
 VOLUME /mongobackup
 
