@@ -6,12 +6,14 @@ ADD backup.sh /backup.sh
 ADD cronstart.sh /cronstart.sh
 ADD remove.sh /remove.sh
 
+RUN cd /
+
 RUN chmod +x /backup.sh
 RUN chmod +x /cronstart.sh
 RUN chmod +x /remove.sh
 RUN mkdir /mongobackup
-RUN cd /
+RUN ./cronstart.sh
 
 VOLUME /mongobackup
 
-CMD '/cronstart.sh'
+CMD cron
