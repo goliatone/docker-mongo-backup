@@ -16,4 +16,4 @@ RUN ./cronstart.sh
 
 VOLUME /mongobackup
 
-CMD cron
+CMD ["cron", "-f"]
