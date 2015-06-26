@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "testingtesting"
+echo "testingtesting" >> /dev/stdout
