@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CRON_SCHEDULE=${CRON_SCHEDULE:-0 2 * * *}
+CRON_CLEANUP=${CRON_CLEANUP:-0 5 1 * *}
 
 CRON_ENVIRONMENT="
 MONGO_HOST=${MONGO_HOST:-mongo}
@@ -17,11 +18,9 @@ echo
 echo "CRON_ENVIRONMENT"
 echo "$CRON_ENVIRONMENT"
 
-mkfifo /var/log/backup_script.log
-
 touch tmpcron
 echo "$CRON_ENVIRONMENT$CRON_SCHEDULE $CRON_COMMAND" >> tmpcron
-echo "0 5 * * * /remove.sh" >> tmpcron
+echo "$CRON_CLEANUP /remove.sh" >> tmpcron
 crontab tmpcron
 rm tmpcron
 
