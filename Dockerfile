@@ -16,4 +16,5 @@ RUN chmod +x /remove.sh
 
 # VOLUME /mongobackup
 
-CMD cron start -f && tail -f /var/log/backup_script.log
+# CMD cron start -f && tail -f /var/log/backup_script.log
+ENTRYPOINT ["/cronstart.sh"]
