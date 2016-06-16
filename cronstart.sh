@@ -24,3 +24,6 @@ echo "$CRON_ENVIRONMENT$CRON_SCHEDULE $CRON_COMMAND" >> tmpcron
 echo "0 5 * * * /remove.sh" >> tmpcron
 crontab tmpcron
 rm tmpcron
+
+cron start -f
+tail -f /var/log/backup_script.log
