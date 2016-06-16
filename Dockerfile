@@ -6,9 +6,9 @@ ADD backup.sh /backup.sh
 ADD cronstart.sh /cronstart.sh
 ADD remove.sh /remove.sh
 
-RUN cd /
-
-RUN mkdir /mongobackup
+RUN cd / && \
+    mkdir /mongobackup && \
+    mkfifo /var/log/backup_script.log
 
 RUN chmod +x /backup.sh
 RUN chmod +x /cronstart.sh
