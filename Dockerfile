@@ -13,7 +13,6 @@ RUN mkdir /mongobackup
 RUN chmod +x /backup.sh
 RUN chmod +x /cronstart.sh
 RUN chmod +x /remove.sh
-RUN ./cronstart.sh
 
 # VOLUME /mongobackup
 
