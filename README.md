@@ -1,7 +1,7 @@
 ## Docker MongoDB Backup
-Docker image to back up a running MongoDB instance
+Docker image to back up a running MongoDB instance.
 
-Rolling backups of a MongoDB instance using `cron` to a volume in `/mongobackup`.
+Rolling backups of a MongoDB instance using `cron` to a volume in `/mongobackup` and a s3 bucket.
 
 ### Environment Variables
 
@@ -11,6 +11,12 @@ The script uses environment variables to take options:
 - MONGO_HOST=mongo (name of your MongoDB service)
 - CRON_SCHEDULE=0 2 * * * (Daily)
 - CRON_CLEANUP=0 5 1 * * (Recurrent, first day the month)
+
+Optionally, if you want to save the dump using S3, set the following variables:
+
+- S3_BUCKET
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
 
 ### Manually triggering a backup
 
@@ -64,3 +70,9 @@ docker build -t goliatone/docker-mongo-backup .
 ```
 docker push goliatone/docker-mongo-backup
 ```
+
+#### Project
+The project is an adaptation of this [mongo-s3-backup][msb] and [docker-mongo-backup][dmb]
+
+[msb]:https://github.com/vmakhaev/mongo-s3-backup
+[dmb]:https://github.com/reviewninja/docker-mongo-backup
