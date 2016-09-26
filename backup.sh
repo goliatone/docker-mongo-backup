@@ -14,8 +14,8 @@ mongodump -h $MONGO_HOST -p $MONGO_PORT
 
 
 echo "$(get_date) [2/3] Creating tar archive..."
-tar -zcvf $OUT dump/
-rm -rf dump/
+tar -zcvf $OUT /mongobackup-dump
+rm -rf /mongobackup-dump
 
 #Respect the spaces between brackes and statement!!! MOFO
 if [[ "$S3_BUCKET" ]] || [[ "$AWS_ACCESS_KEY_ID" ]] || [[ "$AWS_SECRET_ACCESS_KEY" ]];
